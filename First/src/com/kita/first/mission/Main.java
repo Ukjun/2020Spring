@@ -16,9 +16,10 @@ public class Main {
 					a[i] = scanner.nextInt();
 				}
 				
-				int min = a[0];
+				
 				//int range = (int)(a[0]-0.5+num2); // 첫구간 테이빙 칠하는 범위 
 				Arrays.sort(a);
+				int min = a[0];
 				check++;
 				
 				for(int i=1; i<a.length; i++) { // 테이핑 하는 구간 계산 
