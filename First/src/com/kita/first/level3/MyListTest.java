@@ -105,11 +105,17 @@ class MyArrays{
 	static public String toString(MyList list) {
 		String str2 = "";
 		for(int i=0; i<list.size(); i++) {
-			str2 += Integer.toString(list.arr2[i])+ " ";
+			if(i==list.size()-1) {
+				str2 += Integer.toString(list.arr2[i]);
+			}
+			else {
+				str2 += Integer.toString(list.arr2[i])+ ", ";
+			}
+			
 		}
-		return str2;
+		return "["+str2+"]";
+		//return String.format("[%s]",str2); 	
 	}
-	
 	static void print(MyList list) {
 		System.out.print("[");
 		for(int i=0; i<list.size(); i++) {
@@ -121,5 +127,6 @@ class MyArrays{
 			}
 		}
 		System.out.print("]");
+		//System.out.println(toString(list));
 	}
 }
