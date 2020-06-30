@@ -8,4 +8,7 @@ public class ClassA {
 	public ClassA() {
 		super();
 	}
+	void print() {
+		System.out.println("a");
+	}
 }
