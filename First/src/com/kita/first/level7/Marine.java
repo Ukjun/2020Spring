@@ -1,6 +1,6 @@
 package com.kita.first.level7;
 
-public class Marine extends Unit implements AttackUnit {
+public class Marine extends Unit implements AttackUnit, Carable{	//인터페이스는 다중으로 받을수있다.
 	private int damage;
 
 	public Marine() {
