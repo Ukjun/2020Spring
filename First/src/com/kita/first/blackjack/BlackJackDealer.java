@@ -11,7 +11,7 @@ public class BlackJackDealer implements Player{
 		cards = new ArrayList<>();
 	}
 	public void receiveCard(BlackJackCard card) {
-		if(!isReceive()) {
+		if(isReceive()) {
 			this.cards.add(card);
 			showCard();
 		}else

@@ -5,9 +5,11 @@ import java.util.*;
 public class BlackJack {
 	private static final int startPhase = 2;
 	private static String stopReceive = "false";
+	private boolean dealerturn = true;
+	private boolean playererturn = true;
+	Scanner scanner = new Scanner(System.in);
 	public void play() {
-		boolean playerturn = true;
-		boolean dealerturn = true;
+		
 		//play();
 		//System.out.println(deck.toString());
 		
@@ -36,33 +38,45 @@ public class BlackJack {
 		}*/
 		System.out.println("-----------------BlackJack---------------");
 		BlackJackDeck deck = new BlackJackDeck();
+		System.out.println(deck.toString());
 		Scanner scanner = new Scanner(System.in);
 		BlackJackDealer dealer = new BlackJackDealer();
 		BlackJackPlayer player = new BlackJackPlayer();
 		BlackJackRule rule = new BlackJackRule();
-		
-		
 		List<Player> players = Arrays.asList(new BlackJackPlayer(),new BlackJackDealer()); 
 		List<Player> startPhase = startPhase(deck,players);
-		List<Player> playing = playing(scanner, deck, startPhase);
+		//List<Player> playing = playing(scanner, deck, startPhase);
 		
-		
-		Player winner = rule.getWinner(playing);
-		System.out.println("승자는 : "+winner.getName());
-		
-		
+		//Player winner = rule.getWinner(playing);
+		//System.out.println("승자는 : "+winner.getName());
 		scanner.close();
 	}
-	private List<Player> playing(Scanner scanner, BlackJackDeck deck, List<Player> players){
-		List<Player> cardReceivePlayer;
-		while(true) {
-			cardReceivePlayer = receiveAllCard(scanner, deck, players);
-			if(AllPlayerTurnOff(cardReceivePlayer)) {
-				break;
+	private List<Player> startPhase(BlackJackDeck deck, List<Player>players){
+		System.out.println("처음 두장의 카드를 뽑겠습니다.");
+		for(int i=0; i<startPhase; i++) {
+			for(Player player : players) {
+				BlackJackCard card = deck.Draw();
+				player.receivedCard(card);
 			}
 		}
-		return cardReceivePlayer;
+		return players;
 	}
+	
+	public void gameStart(BlackJackDeck deck, BlackJackPlayer player) {
+		while(true) {
+			System.out.println("진행/종료(y/n)");
+			String str = scanner.nextLine();
+			if(str.equals("n")) {
+				break;
+			}
+			BlackJackCard card = deck.Draw();
+			player.receivedCard(card);
+			
+		}
+	}
+	
+	
+	
 /*
 	public static void playerStartPhase(BlackJackDeck deck, List<Player> players) {
 		for (int i = 0; i < startPhase; i++) {
@@ -90,7 +104,7 @@ public class BlackJack {
 		}
 	}
 	*/
-	
+	/*
 	private boolean AllPlayerTurnOff(List<Player> players) {
 		for(Player player: players) {
 			if(player.isTurn()) {
@@ -100,7 +114,7 @@ public class BlackJack {
 		return true;
 	}
 	private List<Player> startPhase(BlackJackDeck deck, List<Player>players){
-		System.out.println("처음 두장의 카드를 뽑겟습니다.");
+		System.out.println("처음 두장의 카드를 뽑겠습니다.");
 		for(int i=0; i<startPhase; i++) {
 			for(Player player : players) {
 				BlackJackCard card = deck.Draw();
@@ -112,21 +126,32 @@ public class BlackJack {
 	
 	private List<Player> receiveAllCard(Scanner scanner, BlackJackDeck deck, List<Player> players ) {
 		//boolean isreceive = true;
-		
-		for(Player player: players) {
-			System.out.println(player.getName()+"차례입니다.");
-			if(isReceiveCard(scanner)){
-				BlackJackCard card = deck.Draw();
-				player.showCard();
-				player.receivedCard(card);
+		while(true) {
+			for(Player player : players) {
+				System.out.println(player.getName()+"차례입니다.");
+				if(){
+					break;
+				}else {
+					BlackJackCard card = deck.Draw();
+					player.showCard();
+					player.receivedCard(card);
+				}
 			}
 		}
-		return players;
-		
 	}
+	
 	private boolean isReceiveCard(Scanner scanner) {
 		System.out.println("카드를 뽑으시겠습니까? 그만 뽑으시겠습니까?(y/n)");
 		return !stopReceive.equals(scanner.nextLine());
 	}
-	
+	private List<Player> playing(Scanner scanner, BlackJackDeck deck, List<Player> players){
+		List<Player> cardReceivePlayer;
+		while(true) {
+			cardReceivePlayer = receiveAllCard(scanner, deck, players);
+			if(AllPlayerTurnOff(cardReceivePlayer)) {
+				break;
+			}
+		}
+		return cardReceivePlayer;
+	}*/
 }

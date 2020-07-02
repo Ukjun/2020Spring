@@ -9,10 +9,11 @@ public class BlackJackPlayer implements Player{
 	public BlackJackPlayer() {
 		cards = new ArrayList<>();
 	}
+	/*
 	public void receiveCard(BlackJackCard card) {
 		this.cards.add(card);
 		showCard();
-	}
+	}*/
 	public void showCard() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("플레이어의 현재 카드 보유 목록: \n");
@@ -23,6 +24,7 @@ public class BlackJackPlayer implements Player{
 		System.out.println(sb.toString());
 	}
 	public void showPoint() {
+		
 	}
 	@Override
 	public void receivedCard(BlackJackCard card) {
