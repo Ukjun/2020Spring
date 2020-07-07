@@ -45,6 +45,8 @@ public class BlackJack {
 		BlackJackRule rule = new BlackJackRule();
 		List<Player> players = Arrays.asList(new BlackJackPlayer(),new BlackJackDealer()); 
 		List<Player> startPhase = startPhase(deck,players);
+		gameStart(deck,player);
+		
 		//List<Player> playing = playing(scanner, deck, startPhase);
 		
 		//Player winner = rule.getWinner(playing);

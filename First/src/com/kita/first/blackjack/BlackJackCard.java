@@ -10,7 +10,7 @@ public class BlackJackCard {
 	public BlackJackCard(String cardPattern, int index) {
 		this.cardPattern = cardPattern;
 		this.cardNum = this.numPattern(index);
-		this.cardpoint = this.CardPoint(index);
+		//this.cardpoint = this.CardPoint(index);
 		
 	}
 

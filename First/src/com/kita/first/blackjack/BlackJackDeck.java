@@ -35,6 +35,9 @@ public class BlackJackDeck {
 	
 	public BlackJackCard Draw() {
 		int size = card.size();
+		if(size==0) {
+			return null;
+		}
 		int ran = (int)(Math.random()*size);
 		BlackJackCard selCard = card.get(ran);
 		card.remove(ran);
