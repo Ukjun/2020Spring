@@ -13,6 +13,7 @@ public class Deck {
 				cards.add(card);
 			}
 		}
+		
 	}
 	
 	public Card getCard() {
