@@ -3,7 +3,6 @@ import java.util.*;
 public class Menu {
 	private List<MenuItem> items  = new ArrayList<>();
 	public Menu() {
-		Scanner scanner = new Scanner(System.in);
 		/*
 		for(int i=0; i<MenuItem.menu_item.length; i++) {
 			MenuItem menuitem = new MenuItem(MenuItem.menu_item[i],MenuItem.menu_price[i]);
@@ -27,8 +26,6 @@ public class Menu {
 			}
 		}
 		*/
-		scanner.close();
-		
 	}
 	public void showMenu() {
 		System.out.println("  Menu  \n");
@@ -48,5 +45,11 @@ public class Menu {
 			st.append("\n");
 		}
 		return st.toString();
+	}
+	
+	public void remove() {
+		System.out.println(items.size());
+		items.remove(items.size());
+		System.out.println("");
 	}
 }
